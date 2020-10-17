@@ -1,0 +1,16 @@
+.wp-block-sprayloc-slanted-container p,
+.wp-block-sprayloc-slanted-container h1,
+.wp-block-sprayloc-slanted-container h2,
+.wp-block-sprayloc-slanted-container h3,
+.wp-block-sprayloc-slanted-container h4,
+.wp-block-sprayloc-slanted-container h5,
+.wp-block-sprayloc-slanted-container h6 {
+  padding: 0px !important;
+  margin: 0px !important;
+
+  line-height: 1em !important;
+}
+
+.components-panel__body-toggle {
+  background-color: #eee;
+}
