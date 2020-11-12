@@ -1,10 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import style from "./style.scss";
-import {
-  InnerBlocks,
-  InspectorControls,
-  MediaUpload,
-} from "@wordpress/block-editor";
+import { InnerBlocks, InspectorControls, MediaUpload } from "@wordpress/block-editor";
 import {
   Toolbar,
   Button,
@@ -40,7 +36,7 @@ export const settings = {
   attributes: {
     clipPath: {
       type: "string",
-      default: "polygon(0 0, 0 calc(100% - 50px), 100% 100%, 100% 0)",
+      default: "polygon(-1px 0, -1px calc(100% - 50px), 101% 100%, 101% 0)",
     },
     slantHeight: {
       type: "number",
@@ -108,9 +104,9 @@ export const settings = {
       // setAttributes({slantInvert : value})
       let str_temp;
       if (!slantInvert) {
-        str_temp = `polygon(0 0, 0 calc(100% - ${slantHeight}px), 100% 100%, 100% 0)`;
+        str_temp = `polygon(-1px 0, -1px calc(100% - ${slantHeight}px), 101% 100%, 100% 0)`;
       } else {
-        str_temp = `polygon(0 0, 0 100%, 100% calc(100% - ${slantHeight}px), 100% 0)`;
+        str_temp = `polygon(-1px 0, -1px 100%, 100% calc(100% - ${slantHeight}px), 101% 0)`;
       }
       setAttributes({ clipPath: str_temp });
     };
@@ -119,9 +115,9 @@ export const settings = {
       setAttributes({ slantInvert: value });
       let str_temp;
       if (!value) {
-        str_temp = `polygon(0 0, 0 calc(100% - ${slantHeight}px), 100% 100%, 100% 0)`;
+        str_temp = `polygon(-10px 0, -10px calc(100% - ${slantHeight}px), 100% 100%, 100% 0)`;
       } else {
-        str_temp = `polygon(0 0, 0 100%, 100% calc(100% - ${slantHeight}px), 100% 0)`;
+        str_temp = `polygon(-10px 0, -10px 100%, 100% calc(100% - ${slantHeight}px), 100% 0)`;
       }
       setAttributes({ clipPath: str_temp });
     };
@@ -161,27 +157,13 @@ export const settings = {
         <Panel header="Slanted Controls">
           <PanelBody title="Misc" initialOpen={true}>
             <PanelRow>
-              <RangeControl
-                label="Height"
-                value={minHeight}
-                max={500}
-                onChange={onHeightChange}
-              />
+              <RangeControl label="Height" value={minHeight} max={500} onChange={onHeightChange} />
             </PanelRow>
             <PanelRow>
-              <RangeControl
-                label="Slant Height"
-                value={slantHeight}
-                max={500}
-                onChange={onSlantHeightChange}
-              />
+              <RangeControl label="Slant Height" value={slantHeight} max={500} onChange={onSlantHeightChange} />
             </PanelRow>
             <PanelRow>
-              <CheckboxControl
-                label="invert"
-                checked={slantInvert}
-                onChange={onInvertChange}
-              />
+              <CheckboxControl label="invert" checked={slantInvert} onChange={onInvertChange} />
             </PanelRow>
           </PanelBody>
           <PanelBody title="background" initialOpen={true}>
@@ -193,15 +175,10 @@ export const settings = {
                 render={({ open }) => (
                   <div>
                     <Button className="button button-large" onClick={open}>
-                      {!mediaID
-                        ? __("Upload Image", "gutenberg-examples")
-                        : __("Change Image", "gutenberg-examples")}
+                      {!mediaID ? __("Upload Image", "gutenberg-examples") : __("Change Image", "gutenberg-examples")}
                     </Button>
                     {mediaID ? (
-                      <Button
-                        className="button button-alert"
-                        onClick={onRemoveBgImage}
-                      >
+                      <Button className="button button-alert" onClick={onRemoveBgImage}>
                         Remove
                       </Button>
                     ) : (
@@ -214,29 +191,15 @@ export const settings = {
           </PanelBody>
           <PanelBody title="Padding" initialOpen={true}>
             <PanelRow>
-              <RangeControl
-                label="Padding Top"
-                value={paddingTop}
-                max={500}
-                onChange={onPaddingTopChange}
-              />
+              <RangeControl label="Padding Top" value={paddingTop} max={500} onChange={onPaddingTopChange} />
             </PanelRow>
             <PanelRow>
-              <RangeControl
-                label="Padding Bottom"
-                value={paddingBottom}
-                max={500}
-                onChange={onPaddingBottomChange}
-              />
+              <RangeControl label="Padding Bottom" value={paddingBottom} max={500} onChange={onPaddingBottomChange} />
             </PanelRow>
           </PanelBody>
 
           <PanelBody title="Colors">
-            <ColorPalette
-              title="backgroundColor"
-              value={backgroundColor}
-              onChange={onBackgroundColorChange}
-            />
+            <ColorPalette title="backgroundColor" value={backgroundColor} onChange={onBackgroundColorChange} />
             {/* <PanelColorSettings
               title="Background Color"
               colorValue={backgroundColor}
@@ -295,7 +258,7 @@ export const settings = {
           backgroundImage: "url(" + backgroundURL + ")",
           clipPath: clipPath,
           marginTop: `${-slantHeight}px`,
-          transform: `translateY(${slantHeight}px)`,
+          transform: `translateY(${slantHeight}px) translateZ(0)`,
           paddingTop,
           paddingBottom,
         }}
