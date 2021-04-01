@@ -1,0 +1,26 @@
+.wp-block-sprayloc-slanted-container {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0px;
+    margin: 0px;
+    line-height: 1em;
+  }
+}
+
+.components-panel__body-toggle {
+  background-color: #eee;
+}
+
+.wp-block-sprayloc-image-float {
+  float: unset !important;
+  padding: 1em;
+
+  @media screen and (max-width: 500px) {
+    float: unset;
+  }
+}

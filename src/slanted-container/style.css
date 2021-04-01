@@ -29,17 +29,28 @@ h6 {
 
 .wp-block-sprayloc-slanted-container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   overflow-y: unset;
 }
+
 .wp-block-sprayloc-slanted-container p {
   max-width: 580px;
   margin-top: 50px;
   margin-top: 20px;
 }
+
 .wp-block-sprayloc-slanted-container img {
   display: block;
   width: 200px;
@@ -48,9 +59,11 @@ h6 {
      object-fit: contain;
   max-width: 200px !important;
 }
+
 .wp-block-sprayloc-slanted-container img .float-left {
   float: left;
 }
+
 .wp-block-sprayloc-slanted-container .title {
   font-size: 6em !important;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
@@ -60,6 +73,7 @@ h6 {
   margin-bottom: 0 !important;
   line-height: 1em !important;
 }
+
 .wp-block-sprayloc-slanted-container .overlay {
   position: absolute;
   z-index: -1;
@@ -68,14 +82,4 @@ h6 {
   width: 100%;
   height: 100%;
 }
-.wp-block-sprayloc-image-float {
-  float: right;
-  padding: 1em;
-}
-@media screen and (max-width: 500px) {
-  .wp-block-sprayloc-image-float {
-    float: unset;
-  }
-}
-
-/*# sourceMappingURL=style-index.css.map*/
+/*# sourceMappingURL=style.css.map */

@@ -11,6 +11,7 @@ import {
   CheckboxControl,
   ColorPalette,
   PanelColorSettings,
+  ColorIndicator,
   RangeControl,
 } from "@wordpress/components";
 export const name = "sprayloc/slanted-container";
@@ -62,6 +63,21 @@ export const settings = {
       type: "string",
       default: "hotpink",
     },
+    overlayColor: {
+      type: "string",
+      default: "orangered",
+    },
+    overlayColors: {
+      type: "array",
+      default: [
+        { name: "color 1", color: "#ff0000" },
+        { name: "color 2", color: "#00ff00" },
+      ],
+    },
+    overlayOpacity: {
+      type: "number",
+      default: 0.2,
+    },
     mediaID: {
       type: "number",
     },
@@ -86,6 +102,9 @@ export const settings = {
         paddingTop,
         paddingBottom,
         backgroundColor,
+        overlayColor,
+        overlayColors,
+        overlayOpacity,
         mediaID,
         mediaURL,
         backgroundURL,
@@ -131,6 +150,14 @@ export const settings = {
     const onBackgroundColorChange = (clr) => {
       //   console.log(clr);
       setAttributes({ backgroundColor: clr });
+    };
+    const onOverlayColorChange = (clr) => {
+      //   console.log(clr);
+      setAttributes({ overlayColor: clr });
+    };
+
+    const onOverlayOpacityChange = (value) => {
+      setAttributes({ overlayOpacity: value });
     };
 
     const onSelectImage = (media) => {
@@ -213,10 +240,26 @@ export const settings = {
               ]}
             ></PanelColorSettings> */}
           </PanelBody>
+          <PanelBody title="Overlay Color" initialOpen={true}>
+            <PanelRow>
+              <RangeControl
+                label="Overlay Opacity"
+                value={overlayOpacity}
+                max={1.0}
+                step={0.01}
+                onChange={onOverlayOpacityChange}
+              />
+            </PanelRow>
+            <PanelRow>
+              <ColorPalette value={overlayColor} colors={overlayColors} onChange={onOverlayColorChange} />
+              <ColorIndicator colorValue={overlayColor} />
+            </PanelRow>
+          </PanelBody>
         </Panel>
       </InspectorControls>,
       <div
         style={{
+          zIndex: 10,
           ...blockStyle,
           minHeight,
           backgroundColor,
@@ -230,7 +273,14 @@ export const settings = {
         className={className}
       >
         <div className="container">
-          <InnerBlocks />
+          <div
+            class="overlay"
+            style={{
+              backgroundColor: overlayColor,
+              opacity: overlayOpacity,
+            }}
+          ></div>
+          <InnerBlocks></InnerBlocks>
         </div>
       </div>,
     ];
@@ -246,13 +296,17 @@ export const settings = {
         paddingBottom,
         backgroundColor,
         backgroundURL,
+        overlayColor,
+        overlayOpacity,
       },
       className,
     } = props;
     return (
       <div
         style={{
+          zIndex: 10,
           ...blockStyle,
+          position: "relative",
           minHeight,
           backgroundColor,
           backgroundImage: "url(" + backgroundURL + ")",
@@ -265,7 +319,14 @@ export const settings = {
         className={(className, "alignwide")}
       >
         <div className="container">
-          <InnerBlocks.Content />
+          <div
+            class="overlay"
+            style={{
+              backgroundColor: overlayColor,
+              opacity: overlayOpacity,
+            }}
+          ></div>
+          <InnerBlocks.Content></InnerBlocks.Content>
         </div>
       </div>
     );

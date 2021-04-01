@@ -1,20 +1,17 @@
 "use_strict";
 
+console.log("js script loaded");
+function manageSlantedZIndices() {
+  let blocks = document.querySelectorAll(".wp-block-sprayloc-slanted-container");
 
-console.log("js script loaded")
-function manageSlantedZIndices(){
-    let blocks = document.querySelectorAll(".wp-block-sprayloc-slanted-container");
+  for (let i = blocks.length - 1; i >= 0; i--) {
+    let block = blocks[i];
+    console.log(block);
 
-    for(let i=blocks.length-1; i>=0; i--){
-        let block = blocks[i];
-        // console.log(block);
-
-        block.style.zIndex = blocks.length - i;
-        
-    }
-
+    block.style.zIndex = blocks.length - i + 20;
+  }
 }
 
-window.addEventListener("DOMContentLoaded", function(){
-    manageSlantedZIndices();
-})
+window.addEventListener("DOMContentLoaded", function () {
+  manageSlantedZIndices();
+});
