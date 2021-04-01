@@ -330,30 +330,45 @@ __webpack_require__.r(__webpack_exports__);
 var el = wp.element.createElement;
 var registerBlockType = wp.blocks.registerBlockType;
 var InnerBlocks = wp.blockEditor.InnerBlocks;
+var _wp$data = wp.data,
+    useDispatch = _wp$data.useDispatch,
+    useSelect = _wp$data.useSelect;
 var BLOCKS_TEMPLATE = [['sprayloc/slanted-container', {}, [['core/heading', {
   placeholder: 'Enter Title',
-  fontSize: "180px",
-  level: 1
-}]]], ['core/image', {
-  align: 'right'
+  level: 1,
+  content: ['Title'],
+  align: 'right',
+  className: "big-title"
+}]]], ['core/group', {
+  className: "inner-content"
+}, [["core/spacer", {}], ["core/heading", {
+  placeholder: "title"
+}], ['core/image', {
+  align: 'right',
+  placeholder: ""
 }], ['core/paragraph', {
   placeholder: 'Image Details'
-}]];
+}]]]];
 var name = 'sprayloc/en-avant';
 var settings = {
   title: 'En-Avant',
   category: 'widgets',
   supports: {
-    fontSize: true
+    fontSize: true,
+    align: true
   },
   edit: function edit(props) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InnerBlocks, {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      className: "en-avant"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InnerBlocks, {
       template: BLOCKS_TEMPLATE,
       templateLock: false
-    });
+    }));
   },
   save: function save(props) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InnerBlocks.Content, null);
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      className: "en-avant"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InnerBlocks.Content, null));
   }
 };
 
@@ -584,19 +599,19 @@ var settings = {
     },
     minHeight: {
       type: "number",
-      default: 500
+      default: 100
     },
     paddingTop: {
       type: "number",
-      default: 150
+      default: 0
     },
     paddingBottom: {
       type: "number",
-      default: 150
+      default: 0
     },
     backgroundColor: {
       type: "string",
-      default: "hotpink"
+      default: "black"
     },
     overlayColor: {
       type: "string",
@@ -658,8 +673,8 @@ var settings = {
     var onSlantHeightChange = function onSlantHeightChange(value) {
       setAttributes({
         slantHeight: value
-      }); // console.log(value);
-      // setAttributes({slantInvert : value})
+      });
+      console.log(value); // setAttributes({slantInvert : value})
 
       var str_temp;
 

@@ -45,6 +45,10 @@ h6 {
   overflow-y: unset;
 }
 
+.wp-block-sprayloc-slanted-container .container {
+  width: 100%;
+}
+
 .wp-block-sprayloc-slanted-container p {
   max-width: 580px;
   margin-top: 50px;
@@ -64,14 +68,14 @@ h6 {
   float: left;
 }
 
-.wp-block-sprayloc-slanted-container .title {
-  font-size: 6em !important;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
+.wp-block-sprayloc-slanted-container .big-title {
+  font-size: 12em !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   line-height: 1em !important;
+  width: 100% !important;
 }
 
 .wp-block-sprayloc-slanted-container .overlay {

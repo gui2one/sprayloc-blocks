@@ -49,19 +49,19 @@ export const settings = {
     },
     minHeight: {
       type: "number",
-      default: 500,
+      default: 100,
     },
     paddingTop: {
       type: "number",
-      default: 150,
+      default: 0,
     },
     paddingBottom: {
       type: "number",
-      default: 150,
+      default: 0,
     },
     backgroundColor: {
       type: "string",
-      default: "hotpink",
+      default: "black",
     },
     overlayColor: {
       type: "string",
@@ -119,7 +119,7 @@ export const settings = {
     };
     const onSlantHeightChange = (value) => {
       setAttributes({ slantHeight: value });
-      // console.log(value);
+      console.log(value);
       // setAttributes({slantInvert : value})
       let str_temp;
       if (!slantInvert) {
