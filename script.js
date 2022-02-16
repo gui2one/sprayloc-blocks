@@ -6,7 +6,7 @@ function manageSlantedZIndices() {
 
   for (let i = blocks.length - 1; i >= 0; i--) {
     let block = blocks[i];
-    console.log(block);
+    // console.log(block);
 
     block.style.zIndex = blocks.length - i + 2;
   }
