@@ -14,6 +14,7 @@
     "@wordpress/scripts": "^13.0.3"
   },
   "dependencies": {
+    "@babel/runtime": "7.0.0-beta.55",
     "@wordpress/block-editor": "^5.2.10",
     "@wordpress/blocks": "^7.0.6",
     "@wordpress/components": "^12.0.8"
