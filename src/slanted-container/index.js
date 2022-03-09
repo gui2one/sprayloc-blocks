@@ -97,6 +97,7 @@ export const settings = {
       attributes: {
         clipPath,
         slantInvert,
+        slantInvertVertical,
         slantHeight,
         minHeight,
         paddingTop,
@@ -119,7 +120,7 @@ export const settings = {
     };
     const onSlantHeightChange = (value) => {
       setAttributes({ slantHeight: value });
-      console.log(value);
+      // console.log(value);
       // setAttributes({slantInvert : value})
       let str_temp;
       if (!slantInvert) {
@@ -140,6 +141,15 @@ export const settings = {
       }
       setAttributes({ clipPath: str_temp });
     };
+
+    const onInvertVerticalChange = (value) => {
+
+      setAttributes({ slantInvertVertical: value });
+
+      redrawSlanted();
+
+    };
+
     const onPaddingTopChange = (value) => {
       setAttributes({ paddingTop: value });
     };
@@ -177,6 +187,20 @@ export const settings = {
         backgroundURL: "",
       });
     };
+    const redrawSlanted = (event)=>{
+      let str_temp;
+
+        let topleft = '0px 0px';
+        if( slantInvertVertical ){
+
+          str_temp = `polygon(0 0, -10px calc(100% - ${slantHeight}px), 100% 100%, 100% 0)`;
+        }else{
+          
+          str_temp = `polygon(0 0, -10px calc(100% - ${slantHeight}px), 100% 100%, 100% 0)`;
+        }
+
+      setAttributes({ clipPath: str_temp });
+    }
     // setStyle();
 
     return [
@@ -191,6 +215,7 @@ export const settings = {
             </PanelRow>
             <PanelRow>
               <CheckboxControl label="invert" checked={slantInvert} onChange={onInvertChange} />
+              <CheckboxControl label="invert vertical" checked={slantInvertVertical} onChange={onInvertVerticalChange} />
             </PanelRow>
           </PanelBody>
           <PanelBody title="background" initialOpen={true}>
