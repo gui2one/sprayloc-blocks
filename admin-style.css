@@ -1,27 +1,2 @@
-.wp-block-sprayloc-slanted-container p,
-.wp-block-sprayloc-slanted-container h1,
-.wp-block-sprayloc-slanted-container h2,
-.wp-block-sprayloc-slanted-container h3,
-.wp-block-sprayloc-slanted-container h4,
-.wp-block-sprayloc-slanted-container h5,
-.wp-block-sprayloc-slanted-container h6 {
-  padding: 0px;
-  margin: 0px;
-  line-height: 1em;
-}
-
-.components-panel__body-toggle {
-  background-color: #eee;
-}
-
-.wp-block-sprayloc-image-float {
-  float: unset !important;
-  padding: 1em;
-}
-
-@media screen and (max-width: 500px) {
-  .wp-block-sprayloc-image-float {
-    float: unset;
-  }
-}
+.components-panel__body-toggle{background-color:#eee}.wp-block-sprayloc-image-float{float:unset !important;padding:1em}@media screen and (max-width: 500px){.wp-block-sprayloc-image-float{float:unset}}
 /*# sourceMappingURL=admin-style.css.map */
