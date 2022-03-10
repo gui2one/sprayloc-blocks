@@ -1,6 +1,6 @@
 "use_strict";
 
-console.log("js script loaded");
+// console.log("js script loaded");
 function manageSlantedZIndices() {
   let blocks = document.querySelectorAll(".wp-block-sprayloc-slanted-container");
 
